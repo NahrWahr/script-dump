@@ -1,0 +1,251 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+
+\usepackage{graphicx, float}
+% \usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage[style=nature]{biblatex}
+%\usepackage[a4paper, total={6.27in, 9.69in}]{geometry}
+\usepackage{booktabs, multirow} 
+\usepackage{soul}
+\usepackage{changepage,threeparttable} 
+\usepackage{subcaption}
+
+\title{Thermoelectric Power Experiment}
+\author{Rahul Narwar 190665 }
+\begin{document}
+
+\maketitle
+
+\section{Aim}
+
+To calculate 
+\begin{itemize}
+    \item thermoelectric power (Q) 
+    \item Fermi Energy (Ef) 
+    \item Carrier concentration (n)
+\end{itemize} of a given ferrite sample.
+
+\section{Theory}
+
+Theoretical model of Thermoelectric power suggest emf varies with $\Delta T$ as given in equation 1.
+
+Equation 2 and 3 represent Fermi energy for thermocouples.
+
+\begin{align}
+    \mathbf E_\text{emf} = -S \nabla T\\
+    QT = E_g-E_f+2KT\\
+    QT = E_f-KT
+\end{align}
+
+Our sample being ferrite one can ignore the kinetic energy term giving the $E_f$ for n and p type conductors as eq 4,5 respectively-
+
+\begin{align}
+    E_f=E_g - QT\\
+    E_f= QT
+\end{align}
+
+For carrier concentration we have.
+
+\begin{equation}
+    Q = - \frac{k_B}{e} \left[ \frac{\ln\beta\left(\frac{N}{n}\right)}{n} + \frac{S_T}{k_B}\right]
+\end{equation}
+$S_T$= Entropy transport term, which is negligible for ferrite materials. Therefore $S_T/K$ is neglected.\\
+$N=$ density of states or number of available sites. \\
+$k_B$= Boltzmann constant \\
+$e =$ electronic charge
+$\beta =$ degeneracy factor which includes both spin and orbital degeneracy and its value is taken as unity ($\beta=1$)
+Considering that$n<<N$ we can reduce the above formula to
+\begin{equation}
+    n = N e^{Qe/k_B}
+\end{equation}
+\\
+V is the volume of the sample and the value of k is found to be 86.4$\mu V/K$, the equation becomes
+\\
+\begin{equation}
+    n = \frac{N}{V}e^{Q/86.4}
+\end{equation}
+where Q is in $\mu V/K$
+
+\section{Method}
+
+\subsection*{Apparatus Used}
+\begin{enumerate}
+    \item Thermoelectric power setup
+    \item Microvoltmeter
+    \item Thermocouple
+    \item Temperature indicator
+    \item Variac
+\end{enumerate}
+
+\subsection*{Software used}
+\begin{enumerate}
+    \item FFMPEG
+    \item ImageJ
+    \item MATLAB,Python
+\end{enumerate}
+
+\begin{itemize}
+    \item Measure T difference
+    \item plot emf (mV) vs Tdiff to get best fit line.
+    \item Slope of this line is Q.
+    \item Proceed with analysis of carrier concentration with this slope Q.
+\end{itemize}
+
+\section{Data}
+
+\includegraphics[width=0.8\textwidth]{Plottdiffemf.png}
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{|p{3cm}|p{3cm}||p{3cm}|p{3cm}|}
+    \hline
+    T(hot) & T(cold) & T(diff) & emf. \\
+    \hline
+250 & 51 & 199 & 46.9 \\
+240 & 51 & 189 & 45 \\
+230 & 51 & 179 & 41.4 \\
+223 & 52 & 171 & 39.4 \\
+210 & 53 & 157 & 36.4 \\
+201 & 53 & 148 & 34.3 \\
+195 & 52 & 143 & 33 \\
+190 & 52 & 138 & 32.1 \\
+184 & 52 & 132 & 30.6 \\
+176 & 52 & 124 & 28.5 \\
+168 & 52 & 116 & 26.4 \\
+159 & 52 & 107 & 24.3 \\
+148 & 52 & 96 & 21.7 \\
+139 & 52 & 87 & 19.7 \\
+128 & 51 & 77 & 17.2 \\
+118 & 51 & 67 & 15 \\
+108 & 50 & 58 & 13 \\
+99 & 48 & 51 & 11.1 \\
+91 & 48 & 43 & 9.5 \\
+82 & 47 & 35 & 7.8 \\
+\hline
+    \end{tabular}
+    \caption{Data obtained}
+    \label{tab:my_label}
+\end{table}
+
+
+
+\section{Analysis}
+
+\subsubsection{Thermoelectric power co-efficient}
+
+\includegraphics[width=0.8\textwidth]{Qslope.png}
+\\
+Linear fit of emf vs tdiff.
+\\
+Slope =      0.2389  (0.2358, 0.2419)
+\\
+Constant =  -1.008  (-1.389, -0.6278)
+
+\subsection{Fermi Energy}
+
+For p type semiconductors
+\\
+$E_f = QT$
+
+Mean of readings is 105.14 mV
+
+\subsection{Carrier Concentration}
+
+Volume of element=300$mm^3 = 0.3 cm^3$
+\\
+Carrier concentration $\eta = \frac{10^{22}}{0.3} \times e^{\frac{0.239}{86.4e-3}} = 5.293 \times 10^{23} cm^{-3}$
+
+\section{Error}
+
+We measure error in slope of graph with 95\% confidence bounds as- 0.0061/2 = 0.003(rounded)
+\\
+Error in $E_f= 0.761 mV$
+\\
+\\
+Error in $\eta$ is calculated by setting the maximum and minimum possible values of Q(slope), ignoring error in measurment of volume since errors in dimensions of element are unavailable.
+\\
+%$\Delta \eta = \eta (\frac{\Delta N}{N} + \frac{\Delta V}{V} + \frac{\Delta Q}{86.4})$
+\\
+$\Delta \eta = \frac{\eta_{max} - \eta_{min}}{2} = 0.182 \times 10^{23} $
+
+\section{Results}
+
+ $Q =  0.239\pm 0.003$ mV/K
+ \\
+ $E_f=105.14 \pm 0.761 mV$
+\\
+$\eta=5.293 \pm 0.182 \times 10^{23} cm^{-3}$
+\section{Summary}
+
+\subsection{Difficulties}
+
+\begin{itemize}
+    \item Several different things are named "Fermi Energy" and it was quite confusing.
+    \item The semicondutor Fermi energy was difficult to understand.
+\end{itemize}
+
+\subsection{Precautions}
+
+\begin{itemize}
+\item Increase in temperature must be slow.
+\item See that the temperature should remain constant at least for few minutes, while taking the
+readings.
+\end{itemize}
+
+
+\section{Acknowledgements}
+
+I thank our professors,TA's and lab staff for helping us provide data and analysing the experiments.
+
+\section{Q/A}
+
+\begin{itemize}
+    \item 1. What do you mean by Seebeck, Peltier and Thomson’s effect?
+    \\
+    \\
+    Seebeck effect is observed due the electromotive force from temperature gradient across a eletrically conducting material.
+    \\
+    \\
+    Peltier effect is associated with behaviour of thermocouple when a electric current is passed through it. Heat evolves at one junction of TC and absorbed at opposite.
+    \\
+    \\
+    Thompson effect is observed in material with varying Seebeck coeffecient with temperature, it descrives the heating or cooling of a current-carrying conductor with termperature gradient.
+    \\
+    \item 2. What is the basic principle involved in the above three effects?
+    \\
+    \\
+    The co-relation between temperature gradient and migration of electrons in atoms results in observable Voltages across materials, these affects are studied as thermoelectric effects.
+    \item 3. What is the difference between photoelectric effect and thermoelectric effect?
+    \\
+    \\
+    Voltage due to excitation of atom electrons by photons on photosensitive materials.
+    \\
+    \\
+    Voltage/electron accln due to application of temperature gradient to thermocouples.
+    \item 4. Mention a few applications of thermoelectric power?
+    \\
+    \\
+    The Seebeck effect is used in thermoelectric generators, which function like heat engines but far less efficient in general, combination of heat engines and TE generators however provides increased efficiency. 
+    \\
+    \\
+    The Peltier effect is used in thermal cyclers, laboratory devices used to amplify DNA by the polymerase chain reaction (PCR)
+    \\
+    \\
+    TE effects can be used in electronic Temperature measurement devices.
+\end{itemize}
+
+
+
+
+\end{document}

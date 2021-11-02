@@ -1,0 +1,115 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+
+\usepackage{graphicx, float}
+% \usepackage{pgfplots}
+\usepackage{amsmath,amssymb}
+\usepackage{hyperref}
+\usepackage[style=nature]{biblatex}
+%\usepackage[a4paper, total={6.27in, 9.69in}]{geometry}
+\usepackage{booktabs, multirow} 
+\usepackage{soul}
+\usepackage{changepage,threeparttable} 
+\usepackage{subcaption}
+
+\title{Solar Cell Experiment}
+\author{Rahul Narwar 190665 }
+
+\begin{document}
+
+\maketitle
+
+\section{Aim}
+
+\begin{itemize}
+    \item 1. Find Io and n from Dark I-V.
+    \item 2. Find Voc .Isc and FF from illuminated I-V.
+    \item 3. Find the efficiency $\eta$ of the solar cell.
+\end{itemize}
+
+\section{Theory}
+
+A solar cell or a photovoltaic cell is a semiconductor device to convert light into electricity. The
+cell consists of a p-n junction of a semiconductors material having a band gap Eg. When the cell
+is exposed to light, a photon with energy less than $E_g$ makes no contribution to the cell
+output. However a photon with energy greater than $E_g$ contributes an energy $E_g$, and excess energy over $E_g$ gets dissipated as heat.
+
+\section{Method}
+
+\section{Data}
+
+\includegraphics[width=10cm,height=10cm]{darkplot.jpg}
+
+\includegraphics[width=10cm,height=10cm]{illplot.jpg}
+
+\section{Analysis}
+
+\subsection{Dark Cell}
+
+General model:
+     f(x) = a*(exp(b*x)-1)
+Coefficients (with 95% confidence bounds):
+       a =       0.018  (0.01303, 0.02296)
+       b =       2.253  (1.791, 2.715)
+
+Goodness of fit:
+  SSE: 3.183e-06
+  R-square: 0.9955
+  Adjusted R-square: 0.9952
+  RMSE: 0.0004205
+  
+\subsection{Illuminated Cell}
+
+\includegraphics[width=10cm,height=10cm]{illplotpeak.jpg}
+
+
+-7.146, 2.851
+
+Peak Occurs at -
+
+illx(15),illy(15)
+
+ans =
+
+   -4.6900
+
+
+ans =
+
+    2.1640
+
+\section{Error}
+
+\section{Results}
+
+\section{Summary}
+
+\subsection{Difficulties faced}
+
+\subsection{Precautions}
+
+\section{Acknowledgments}
+
+\section{Q and A}
+
+\begin{itemize}
+    \item Q1
+    \item Q2
+    \item Q3
+    44.4\% with multiple dies assembled into a hybrid package.The solar cell is of the concentrator triple-junction compound type
+    \item Q5
+    Solar arrays in close orbit around sun reflecting/transmitting energy to stations which may use the heat to generate electricity. Atmosphere absorbs a lot of energy in sunrays, avoiding atmosphere, and devising a method to ensure cold sink remains cold in space(dificult due to lack of atmosphere) is although a challenging task but very useful due to overall energy in sunrays in space.
+    \item Q6
+    No some aspect of tidal energy and wind energy etc. can be attributed to the energy due to rotation of earth and gravitational effects of moon on earth surface, unless one declares these to be from Sun as well, all energy isn't directly/indirectly solar.
+\end{itemize}
+
+\end{document}
